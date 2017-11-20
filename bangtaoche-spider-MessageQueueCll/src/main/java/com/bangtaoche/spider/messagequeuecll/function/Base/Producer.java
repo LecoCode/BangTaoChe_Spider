@@ -1,6 +1,5 @@
 package com.bangtaoche.spider.messagequeuecll.function.Base;
 
-import com.bangtaoche.spider.messagequeuecll.function.conn.ActiveMQConnection;
 import com.bangtaoche.spider.messagequeuecll.function.medium.CreateSession;
 import com.bangtaoche.spider.messagequeuecll.function.MessageInterface.SendMessage;
 

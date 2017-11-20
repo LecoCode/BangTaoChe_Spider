@@ -1,4 +1,4 @@
-package com.bangtaoche.spider.messagequeuecll.function.conn;
+package com.bangtaoche.spider.messagequeuecll.function.medium;
 
 import com.bangtaoche.spider.util.ConfigConnection;
 import org.apache.activemq.ActiveMQConnectionFactory;
@@ -44,7 +44,7 @@ public class ActiveMQConnection {
     }
 
     /** 获取消息的连接*/
-    public static Connection getActiveMQConnection(){
+    protected static Connection getActiveMQConnection(){
         Connection connection = null;
         try {
             connection = conn.createConnection();
@@ -65,7 +65,7 @@ public class ActiveMQConnection {
      * 停止连接
      * @param connection
      */
-    public static void stopConnection(Connection connection){
+    protected static void stopConnection(Connection connection){
         try {
             connection.stop();
         } catch (JMSException e) {

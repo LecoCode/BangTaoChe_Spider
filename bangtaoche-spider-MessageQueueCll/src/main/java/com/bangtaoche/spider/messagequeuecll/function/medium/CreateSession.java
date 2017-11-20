@@ -1,6 +1,5 @@
 package com.bangtaoche.spider.messagequeuecll.function.medium;
 
-import com.bangtaoche.spider.messagequeuecll.function.conn.ActiveMQConnection;
 import com.bangtaoche.spider.util.ConfigConnection;
 
 import javax.jms.*;
