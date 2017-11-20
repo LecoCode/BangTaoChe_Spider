@@ -1,4 +1,4 @@
-package com.bangtaoche.spider.messagequeuecll.function;
+package com.bangtaoche.spider.messagequeuecll.function.conn;
 
 import com.bangtaoche.spider.util.ConfigConnection;
 import org.apache.activemq.ActiveMQConnectionFactory;

@@ -1,5 +1,10 @@
 package com.bangtaoche.spider.messagequeuecll;
 
+import com.bangtaoche.spider.messagequeuecll.function.Base.Consumer;
+import com.bangtaoche.spider.messagequeuecll.function.Base.Producer;
+
+import javax.jms.JMSException;
+
 public class MessageQueueFactory {
 
     private static Consumer consumer;
@@ -19,4 +24,13 @@ public class MessageQueueFactory {
         }
         return producer;
     }
+
+    public static void main(String[] args){
+        Producer producer = MessageQueueFactory.getProducer();
+        producer.sendMessage("666666666666666666");
+    }
+
+
+
+
 }

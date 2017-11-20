@@ -1,16 +1,16 @@
-package com.bangtaoche.spider.messagequeuecll;
+package com.bangtaoche.spider.messagequeuecll.function.Base;
 
 
-import com.bangtaoche.spider.messagequeuecll.function.CreateSession;
-import com.bangtaoche.spider.messagequeuecll.function.HandMessage;
+import com.bangtaoche.spider.messagequeuecll.function.medium.CreateSession;
+import com.bangtaoche.spider.messagequeuecll.function.MessageInterface.HandMessage;
 
 import javax.jms.*;
 
 public class Consumer {
     MessageConsumer messageConsumer;
-    HandMessage handMessage;
-    Consumer(){
-        CreateSession createSession = new CreateSession();
+    CreateSession createSession;
+    public Consumer(){
+        createSession = new CreateSession();
         messageConsumer = createSession.CreateConsumer();
     }
 
@@ -33,7 +33,10 @@ public class Consumer {
             new JMSException("监听失败");
         }
     }
-
+    //销毁连接
+    public void stop(){
+        createSession.stop();
+    }
     /**
      * 消费者监听
      *

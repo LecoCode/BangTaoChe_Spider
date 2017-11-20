@@ -1,12 +1,15 @@
-package com.bangtaoche.spider.messagequeuecll.function;
+package com.bangtaoche.spider.messagequeuecll.function.medium;
 
+import com.bangtaoche.spider.messagequeuecll.function.conn.ActiveMQConnection;
 import com.bangtaoche.spider.util.ConfigConnection;
-import org.junit.Test;
 
 import javax.jms.*;
 import java.io.IOException;
 import java.util.Properties;
 
+/**
+ * 中间介质类
+ */
 public class CreateSession {
     private static Properties properties;
     private static Connection conn;
@@ -29,15 +32,13 @@ public class CreateSession {
         }
     }
 
-
-    public  Session getSession(){
-        return session;
-    }
-
+    /**
+     * 创建生产者
+     * @return
+     */
     public  MessageProducer CreateProduce(){
         Destination destination = null;
         MessageProducer producer = null;
-        String topicName = properties.getProperty("TopicName");
         try {
             destination = session.createQueue(properties.getProperty("Topic"));
         } catch (JMSException e) {
@@ -52,6 +53,11 @@ public class CreateSession {
         }
         return producer;
     }
+
+    /**
+     * 创建消费者
+     * @return
+     */
     public  MessageConsumer CreateConsumer(){
         Destination destination = null;
         MessageConsumer consumer = null;
@@ -69,7 +75,10 @@ public class CreateSession {
         }
         return consumer;
     }
-
+    /**
+     * 创建消息
+     * @return
+     */
     public  TextMessage CreateTextMessage(){
         TextMessage textMessage = null;
         try {
@@ -81,19 +90,17 @@ public class CreateSession {
         return textMessage;
     }
 
-    public  void stop(){
+    //销毁连接
+    public void stop(){
         ActiveMQConnection.stopConnection(conn);
     }
-
-
     public static void main(String []args) throws JMSException {
         //发送信息
         try {
             CreateSession createSession = new CreateSession();
             MessageProducer messageProducer = createSession.CreateProduce();
-            Session session = createSession.getSession();
             for (int i = 0; i <10 ; i++) {
-                TextMessage textMessage = session.createTextMessage();
+                TextMessage textMessage = createSession.CreateTextMessage();
                 textMessage.setText("李飞是神");
                 messageProducer.send(textMessage);
             }
