@@ -1,11 +1,13 @@
 package com.bangtaoche.spider.dpage.service;
 
+import com.bangtaoche.spider.dpage.jopo.MessageMode;
 import com.bangtaoche.spider.dpage.messagequeue.DocumentMessageQueue;
 import com.bangtaoche.spider.dpage.messagequeue.MessageQueue;
 import com.bangtaoche.spider.dpage.runnables.getPageRunnable;
 import com.bangtaoche.spider.dpage.url.DBsourceURL;
 import com.bangtaoche.spider.dpage.url.getUrl;
 import com.bangtaoche.spider.util.ThreadLocalClientFactory;
+import com.bangtaoche.spider.util.Util;
 import com.gargoylesoftware.htmlunit.Page;
 import com.gargoylesoftware.htmlunit.WebClient;
 import com.gargoylesoftware.htmlunit.html.HtmlElement;
@@ -29,20 +31,29 @@ public class PageService {
     private ExecutorService executorService;
     PageService(){
         dBsourceURL = new getUrl();
-        executorService = Executors.newFixedThreadPool(15);
+        executorService = Executors.newFixedThreadPool(Util.getExecutorsConnectionMax());
     }
     public void start() throws IOException, InterruptedException {
-        Set<String> urlAll = dBsourceURL.getUrlAll();
-        int i=0;
-        System.out.println(
-                urlAll.size());
-        Iterator<String> iterator = urlAll.iterator();
-        while (iterator.hasNext()){
-            String urls = iterator.next();
-            executorService.execute(new getPageRunnable(urls,"che168"));
-            System.out.println("添加了"+(i++)+"个线程！");
-        }
-//        executorService.shutdown();
+       while (true){
+           String[] sourceIDs = Util.getSourceIDs();
+           for (String source:
+                   sourceIDs) {
+               Set<String> urlAll = dBsourceURL.getUrlAll(source);
+               int i=0;
+               System.out.println(
+                       urlAll.size());
+               Iterator<String> iterator = urlAll.iterator();
+               while (iterator.hasNext()){
+                   MessageMode messageMode = new MessageMode();
+                   messageMode.setSourceID(source);
+                   String urls = iterator.next();
+                   messageMode.setMode(urls);
+                   executorService.execute(new getPageRunnable(messageMode));
+                   System.out.println("添加了"+(i++)+"个线程！");
+               }
+               urlAll.clear();
+           }
+       }
     }
 
     public static void main(String[] args) throws IOException, InterruptedException {

@@ -37,6 +37,6 @@ public interface DBsourceURL {
     /**
      * 获取所有url
      */
-    Set<String> getUrlAll();
+    Set<String> getUrlAll(String key);
 
 }

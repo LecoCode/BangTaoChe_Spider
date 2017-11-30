@@ -17,7 +17,6 @@ public class getUrl implements DBsourceURL {
     private Jedis connection;
     public getUrl(){
         connection = RedisConnection.getConnection();
-
     }
     @Override
     public void setUrl(String url) {
@@ -40,8 +39,8 @@ public class getUrl implements DBsourceURL {
     }
 
     @Override
-    public Set<String> getUrlAll() {
-        Set<String> che168 = connection.smembers("che168");
+    public Set<String> getUrlAll(String key) {
+        Set<String> che168 = connection.smembers(key);
         return che168;
     }
 }

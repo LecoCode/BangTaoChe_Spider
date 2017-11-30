@@ -10,6 +10,6 @@ import com.bangtaoche.spider.dpage.jopo.IP;
  * @Function:
  */
 public interface PageMode {
-    String get(String url);
+//    String get(String url);
 //    String get(String url,IP ip);
 }

@@ -23,7 +23,7 @@ public class getPageMode implements PageMode {
     public getPageMode(){
 
     }
-    public String get(String url) {
+    public static String get(String url) {
         instance= ThreadLocalClientFactory.getInstance();
         WebClient webClient = instance.getWebClient();
         String pageMode = getPageMode(url,webClient);
