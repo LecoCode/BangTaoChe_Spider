@@ -1,31 +1,47 @@
 package com.bangtaoche.spider.messagequeuecll.function.Base;
 
 
+import com.bangtaoche.spider.messagequeuecll.function.MessageMode;
 import com.bangtaoche.spider.messagequeuecll.function.medium.CreateSession;
 import com.bangtaoche.spider.messagequeuecll.function.MessageInterface.HandMessage;
+import org.apache.activemq.command.ActiveMQObjectMessage;
 
 import javax.jms.*;
+import java.io.Serializable;
 
 public class Consumer {
     MessageConsumer messageConsumer;
     CreateSession createSession;
-    public Consumer(){
+    public Consumer(String d){
         createSession = new CreateSession();
-        messageConsumer = createSession.CreateConsumer();
+        messageConsumer = createSession.CreateConsumer(d);
     }
 
 
-    public void start(final HandMessage handMessage){
+    public void startMessage(final HandMessage handMessage){
         try {
             messageConsumer.setMessageListener(new MessageListener() {
                 public void onMessage(Message message) {
-
-                    try {
-                        handMessage.handMessage(((TextMessage)message).getText());
-                    } catch (JMSException e) {
-                        e.printStackTrace();
-                        new JMSException(">>>>>>>获取消息失败！");
+                    if (message instanceof ObjectMessage){
+                            ActiveMQObjectMessage activeMQObjectMessage = (ActiveMQObjectMessage) message;
+                        try {
+                            MessageMode messageMode = (MessageMode) activeMQObjectMessage.getObject();
+                            handMessage.handMessage(messageMode);
+                        } catch (JMSException e) {
+                            e.printStackTrace();
+                        }
+                    }else{
+                        try {
+                            handMessage.handMessage(((TextMessage)message).getText());
+                        } catch (JMSException e) {
+                            e.printStackTrace();
+                            new JMSException(">>>>>>>获取对象消息失败！");
+                        }catch (ClassCastException e){
+                            e.printStackTrace();
+                            new ClassCastException(">>>>>>>类型转换失败，可能是对象不匹配");
+                        }
                     }
+
                 }
             });
         } catch (JMSException e) {
@@ -43,11 +59,6 @@ public class Consumer {
      * @param args
      */
     public static void main(String[] args) {
-        Consumer consumer = new Consumer();
-        consumer.start(new HandMessage() {
-            public void handMessage(String msg) {
-                System.out.println(msg);
-            }
-        });
+
     }
 }

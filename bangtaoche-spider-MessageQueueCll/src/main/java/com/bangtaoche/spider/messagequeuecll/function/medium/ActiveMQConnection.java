@@ -54,14 +54,7 @@ public class ActiveMQConnection {
         return connection;
     }
 
-
-    @Test
-    public void test() throws JMSException {
-        Connection activeMQConnection = getActiveMQConnection();
-        activeMQConnection.start();
-    }
-
-    /**
+     /**
      * 停止连接
      * @param connection
      */
