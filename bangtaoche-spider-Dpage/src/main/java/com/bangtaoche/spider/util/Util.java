@@ -59,7 +59,7 @@ public class Util {
      * @return
      */
     public static String[] getSourceIDs(){
-        String [] source =null;
+        String [] source;
             Properties source_conf = getProperties("source_conf");
             String sourceIDs = source_conf.getProperty("sourceIDs");
             if (!sourceIDs.contains(",")){
@@ -72,7 +72,7 @@ public class Util {
             }
         return source;
     }
-
+//message_name
     /**
      * 获取线程池最大线程数
      * @return
@@ -93,6 +93,12 @@ public class Util {
         Properties properties = getProperties("durl_conf");
         String pool_max = properties.getProperty("access_mode");
         return Integer.parseInt(pool_max);
+    }
+
+    public static String getMessageName(){
+        Properties properties = getProperties("durl_conf");
+        String message_name = properties.getProperty("message_name");
+        return message_name;
     }
 
     public static void main(String[] args) {

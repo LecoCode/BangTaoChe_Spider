@@ -1,13 +1,11 @@
 package com.bangtaoche.spider.dpage.runnables;
 
 import com.bangtaoche.spider.dpage.jopo.IP;
-import com.bangtaoche.spider.dpage.jopo.MessageMode;
 import com.bangtaoche.spider.dpage.messagequeue.DocumentMessageQueue;
 import com.bangtaoche.spider.dpage.mode.getIpMode;
 import com.bangtaoche.spider.dpage.mode.getPageMode;
+import com.bangtaoche.spider.messagequeuecll.function.MessageMode;
 import com.bangtaoche.spider.util.Util;
-
-import java.util.Random;
 
 /**
  * @author: 李飞
@@ -19,16 +17,14 @@ import java.util.Random;
 public class getPageRunnable implements Runnable {
     private static final int AccessMode = Util.getAccessMode();
     private String url;
-    private getPageMode getPageModel;
     private getIpMode GetIpMode;
     private DocumentMessageQueue documentMessageQueue;
     private MessageMode messageMode;
     public getPageRunnable(MessageMode messageMode){
         this.messageMode=messageMode;
         this.url=messageMode.getMode();
-        getPageModel = new getPageMode();
         GetIpMode = new getIpMode();
-        documentMessageQueue = new DocumentMessageQueue(messageMode.getSourceID());
+        documentMessageQueue = new DocumentMessageQueue(Util.getMessageName());
     }
     @Override
     public void run() {
@@ -52,7 +48,7 @@ public class getPageRunnable implements Runnable {
         if (s!=null){
         if (s.length()>10){
             messageMode.setMode(s);
-            documentMessageQueue.SendMsgObj(s);
+            documentMessageQueue.SendMsgObj(messageMode);
             System.out.println("发送了："+(++Util.mess_count)+"个");
         }
         }

@@ -24,15 +24,12 @@ public class getIpMode implements IpMode {
     public getIpMode(){
         conn = mySQLConnection.getConnection();
     }
-
-
     public IP getIP(){
         IP ip = null;
         PreparedStatement preparedStatement =
                 null;
         try {
             preparedStatement = conn.prepareStatement("SELECT ip,port FROM db_spider.tbl_ip order by id desc limit 1 ");
-
         ResultSet resultSet =
                 preparedStatement.executeQuery();
         resultSet.next();

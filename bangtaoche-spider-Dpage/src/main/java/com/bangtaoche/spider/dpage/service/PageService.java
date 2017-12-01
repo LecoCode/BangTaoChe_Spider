@@ -1,17 +1,10 @@
 package com.bangtaoche.spider.dpage.service;
 
-import com.bangtaoche.spider.dpage.jopo.MessageMode;
-import com.bangtaoche.spider.dpage.messagequeue.DocumentMessageQueue;
-import com.bangtaoche.spider.dpage.messagequeue.MessageQueue;
 import com.bangtaoche.spider.dpage.runnables.getPageRunnable;
 import com.bangtaoche.spider.dpage.url.DBsourceURL;
 import com.bangtaoche.spider.dpage.url.getUrl;
-import com.bangtaoche.spider.util.ThreadLocalClientFactory;
+import com.bangtaoche.spider.messagequeuecll.function.MessageMode;
 import com.bangtaoche.spider.util.Util;
-import com.gargoylesoftware.htmlunit.Page;
-import com.gargoylesoftware.htmlunit.WebClient;
-import com.gargoylesoftware.htmlunit.html.HtmlElement;
-import com.gargoylesoftware.htmlunit.html.HtmlPage;
 
 import java.io.IOException;
 import java.util.Iterator;

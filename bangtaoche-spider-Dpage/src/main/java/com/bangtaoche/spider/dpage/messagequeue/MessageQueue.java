@@ -1,5 +1,7 @@
 package com.bangtaoche.spider.dpage.messagequeue;
 
+import com.bangtaoche.spider.messagequeuecll.function.MessageMode;
+
 import java.io.Serializable;
 
 /**
@@ -10,5 +12,5 @@ import java.io.Serializable;
  * @Function:
  */
 public interface MessageQueue {
-    void SendMsgObj(Serializable document);
+    void SendMsgObj(MessageMode document);
 }

@@ -2,6 +2,7 @@ package com.bangtaoche.spider.dpage.messagequeue;
 
 import com.bangtaoche.spider.messagequeuecll.MessageQueueFactory;
 import com.bangtaoche.spider.messagequeuecll.function.Base.Producer;
+import com.bangtaoche.spider.messagequeuecll.function.MessageMode;
 
 import java.io.Serializable;
 
@@ -19,7 +20,7 @@ public class DocumentMessageQueue implements MessageQueue{
         producer = MessageQueueFactory.getProducer(QueueName);
     }
 
-    public void SendMsgObj(Serializable document){
+    public void SendMsgObj(MessageMode document){
          producer.sendObjectMessage(document);
     }
 

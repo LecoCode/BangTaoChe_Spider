@@ -20,7 +20,7 @@ import java.util.Properties;
 public class mySQLConnection {
     private static DruidDataSource dataSource;
     static {
-        Properties properties = Util.getProperties("db.properties");
+        Properties properties = Util.getProperties("db_conf");
         dataSource = new DruidDataSource();
         dataSource.setUrl(properties.getProperty("connectionURL"));
         dataSource.setDriverClassName(properties.getProperty("driversClass"));

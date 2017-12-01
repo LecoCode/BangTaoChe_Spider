@@ -21,7 +21,7 @@ import java.util.Set;
 public class RedisConnection {
     private static JedisPool jedisPool;
     static {
-        Properties properties =Util.getProperties("redis.properties");
+        Properties properties =Util.getProperties("redis_conf");
         JedisPoolConfig jedisPoolConfig = new JedisPoolConfig();
         jedisPool = new JedisPool(jedisPoolConfig,properties.getProperty("redis.ip"), Integer.parseInt(properties.getProperty("redis.port")));
     }
