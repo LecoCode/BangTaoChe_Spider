@@ -1,5 +1,7 @@
 package com.bangtaoche.spider.messagequeuecll.function.Base;
 
+import com.bangtaoche.spider.messagequeuecll.function.CheBean;
+import com.bangtaoche.spider.messagequeuecll.function.DeTailsCheBean;
 import com.bangtaoche.spider.messagequeuecll.function.MessageMode;
 import com.bangtaoche.spider.messagequeuecll.function.medium.CreateSession;
 import com.bangtaoche.spider.messagequeuecll.function.MessageInterface.SendMessage;
@@ -64,6 +66,36 @@ public class Producer implements SendMessage {
         try {
             ActiveMQObjectMessage objectMessage=createSession.CreateObjectMessage();
             objectMessage.setObject(messageMode);
+            messageProducer.send(objectMessage);
+        } catch (JMSException e) {
+            e.printStackTrace();
+            new JMSException(">>>>>>>发送消息失败！");
+        }
+    }
+    /**
+     * 发送列表车
+     * @param
+     * @throws JMSException
+     */
+    public void sendListCheMessage(CheBean cheBean) {
+        try {
+            ActiveMQObjectMessage objectMessage=createSession.CreateObjectMessage();
+            objectMessage.setObject(cheBean);
+            messageProducer.send(objectMessage);
+        } catch (JMSException e) {
+            e.printStackTrace();
+            new JMSException(">>>>>>>发送消息失败！");
+        }
+    }
+    /**
+     * 发送详细车
+     * @param
+     * @throws JMSException
+     */
+    public void sendDeTailsCheMessage(DeTailsCheBean deTailsCheBean) {
+        try {
+            ActiveMQObjectMessage objectMessage=createSession.CreateObjectMessage();
+            objectMessage.setObject(deTailsCheBean);
             messageProducer.send(objectMessage);
         } catch (JMSException e) {
             e.printStackTrace();

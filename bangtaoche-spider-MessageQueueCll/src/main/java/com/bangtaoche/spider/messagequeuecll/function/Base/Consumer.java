@@ -25,8 +25,8 @@ public class Consumer {
                     if (message instanceof ObjectMessage){
                             ActiveMQObjectMessage activeMQObjectMessage = (ActiveMQObjectMessage) message;
                         try {
-                            MessageMode messageMode = (MessageMode) activeMQObjectMessage.getObject();
-                            handMessage.handMessage(messageMode);
+                            Serializable object = activeMQObjectMessage.getObject();
+                            handMessage.handMessage(object);
                         } catch (JMSException e) {
                             e.printStackTrace();
                         }

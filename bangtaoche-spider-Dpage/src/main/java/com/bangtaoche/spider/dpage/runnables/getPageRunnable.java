@@ -20,11 +20,16 @@ public class getPageRunnable implements Runnable {
     private getIpMode GetIpMode;
     private DocumentMessageQueue documentMessageQueue;
     private MessageMode messageMode;
-    public getPageRunnable(MessageMode messageMode){
+    public getPageRunnable(MessageMode messageMode,int off){
         this.messageMode=messageMode;
         this.url=messageMode.getMode();
         GetIpMode = new getIpMode();
-        documentMessageQueue = new DocumentMessageQueue(Util.getMessageName());
+        if (off==1){
+            documentMessageQueue = new DocumentMessageQueue(Util.getListMessageName());
+        }else if (off==2){
+            documentMessageQueue = new DocumentMessageQueue(Util.getDetailedMessageName());
+
+        }
     }
     @Override
     public void run() {

@@ -33,7 +33,7 @@
     <orderEntry type="library" name="Maven: redis.clients:jedis:2.9.0" level="project" />
     <orderEntry type="library" name="Maven: org.apache.commons:commons-pool2:2.4.2" level="project" />
     <orderEntry type="library" name="Maven: org.jsoup:jsoup:1.10.2" level="project" />
-    <orderEntry type="library" name="Maven: com.bangtaoche.spider.MessageQueueCll:bangtaoche-spider-MessageQueueCll:1.2-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="Maven: com.bangtaoche.spider.MessageQueueCll:bangtaoche-spider-MessageQueueCll:1.4-SNAPSHOT" level="project" />
     <orderEntry type="library" name="Maven: org.apache.activemq:activemq-all:5.2.0" level="project" />
     <orderEntry type="library" name="Maven: junit:junit:4.8" level="project" />
   </component>

@@ -95,12 +95,26 @@ public class Util {
         return Integer.parseInt(pool_max);
     }
 
-    public static String getMessageName(){
+    public static String getListMessageName(){
         Properties properties = getProperties("durl_conf");
-        String message_name = properties.getProperty("message_name");
+        String message_name = properties.getProperty("list_message_name");
         return message_name;
     }
-
+    public static String getDetailedMessageName(){
+        Properties properties = getProperties("durl_conf");
+        String message_name = properties.getProperty("detailed_message_name");
+        return message_name;
+    }
+    public static String getHendDetailedUrlMessageName(){
+        Properties properties = getProperties("durl_conf");
+        String message_name = properties.getProperty("hend_detailed_url");
+        return message_name;
+    }
+    public static int getStartMode(){
+        Properties properties = getProperties("durl_conf");
+        String message_name = properties.getProperty("start_mode");
+        return Integer.parseInt(message_name);
+    }
     public static void main(String[] args) {
         System.out.println(getAccessMode());
     }

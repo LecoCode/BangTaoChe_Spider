@@ -8,5 +8,5 @@ import java.io.Serializable;
 public interface HandMessage {
 
     void handMessage(String msg);
-    void handMessage(MessageMode objmsg);
+    void handMessage(Serializable objmsg);
 }
