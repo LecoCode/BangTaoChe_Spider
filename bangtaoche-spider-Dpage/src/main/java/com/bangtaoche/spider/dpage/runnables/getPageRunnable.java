@@ -20,6 +20,12 @@ public class getPageRunnable implements Runnable {
     private getIpMode GetIpMode;
     private DocumentMessageQueue documentMessageQueue;
     private MessageMode messageMode;
+
+    /**
+     *
+     * @param messageMode 消息实体
+     * @param off 1：创建发送给List解析类的地址，2：创建发送个详细页解析类的地址
+     */
     public getPageRunnable(MessageMode messageMode,int off){
         this.messageMode=messageMode;
         this.url=messageMode.getMode();
@@ -52,6 +58,7 @@ public class getPageRunnable implements Runnable {
         System.out.println("处理了完了："+(++Util.end_count)+"个:"+Thread.currentThread().getId());
         if (s!=null){
         if (s.length()>10){
+            messageMode.setPageUrl(url);
             messageMode.setMode(s);
             documentMessageQueue.SendMsgObj(messageMode);
             System.out.println("发送了："+(++Util.mess_count)+"个");

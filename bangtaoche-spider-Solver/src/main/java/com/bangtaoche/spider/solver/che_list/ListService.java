@@ -7,9 +7,6 @@ import com.bangtaoche.spider.messagequeuecll.function.CheBean;
 import com.bangtaoche.spider.messagequeuecll.function.MessageInterface.HandMessage;
 import com.bangtaoche.spider.messagequeuecll.function.MessageMode;
 import com.bangtaoche.spider.solver.Util;
-import com.bangtaoche.spider.solver.dao.DBSource;
-import com.bangtaoche.spider.solver.dao.DBSourceInterface;
-import com.bangtaoche.spider.solver.entity.Che168;
 
 import java.io.Serializable;
 
@@ -20,9 +17,9 @@ import java.io.Serializable;
  * @GitHub: https://github.com/LecoCode
  * @Function:
  */
-public class listService {
+public class ListService {
     private String HandlerMessageName;
-    public listService(String HandlerMessageName){
+    public ListService(String HandlerMessageName){
         this.HandlerMessageName=HandlerMessageName;
     }
     public void run() {
@@ -74,6 +71,7 @@ public class listService {
                 MessageMode messageMode = new MessageMode();
                 messageMode.setSourceID(cheBean.getSourceID());
                 messageMode.setMode(cheBean.getUrl());
+                System.out.println(cheBean.getSourceID());
                 producer.sendObjectMessage(messageMode);
 //                    }
 //                }
@@ -82,8 +80,8 @@ public class listService {
     }
 
     public static void main(String[] args) {
-        listService listService = new listService(Util.getHandResultMessageName());
-        listService.run();
+        ListService ListService = new ListService(Util.getHandResultMessageName());
+        ListService.run();
     }
 }
 

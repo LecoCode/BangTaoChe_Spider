@@ -4,7 +4,6 @@ import com.bangtaoche.spider.dpage.service.DetailedPageService;
 import com.bangtaoche.spider.dpage.service.ListPageSerivce;
 import com.bangtaoche.spider.dpage.service.service;
 import com.bangtaoche.spider.util.Util;
-
 import java.io.IOException;
 
 /**
@@ -18,11 +17,11 @@ public class TotalControl {
     public static void main(String[] args) throws IOException, InterruptedException {
         int startMode = Util.getStartMode();
         service service = null;
-        if (startMode==1){
-         service = new ListPageSerivce();
-        }else if (startMode==2){
+//        if (startMode==1){
+//         service = new ListPageSerivce();
+//        }else if (startMode==2){
          service  = new DetailedPageService(Util.getHendDetailedUrlMessageName());
-        }
+//        }
         service.start();
     }
 }

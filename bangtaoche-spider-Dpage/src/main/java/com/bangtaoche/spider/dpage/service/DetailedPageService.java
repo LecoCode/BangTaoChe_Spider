@@ -38,6 +38,7 @@ public class DetailedPageService implements service {
             @Override
             public void handMessage(Serializable serializable) {
                 MessageMode messageMode = (MessageMode) serializable;
+                System.out.println(">>>>>>>>>>>>>>URL:"+messageMode.getSourceID());
                 executorService.execute(new getPageRunnable(messageMode,2));
             }
         });

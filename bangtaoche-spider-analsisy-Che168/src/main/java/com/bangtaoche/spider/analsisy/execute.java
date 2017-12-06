@@ -1,8 +1,9 @@
 package com.bangtaoche.spider.analsisy;
 
-import com.bangtaoche.spider.analsisy.che168.AnalsisyMode;
-import com.bangtaoche.spider.analsisy.service.AnalsisyClient;
+import com.bangtaoche.spider.analsisy.service.DetailedAnalsisyClient;
+import com.bangtaoche.spider.analsisy.service.ListAnalsisyClient;
 import com.bangtaoche.spider.analsisy.service.Util;
+import com.bangtaoche.spider.analsisy.service.absAnalsisyClient;
 
 /**
  * @author: 李飞
@@ -13,9 +14,12 @@ import com.bangtaoche.spider.analsisy.service.Util;
  */
 public class execute {
     public static void main(String[] args) {
-            AnalsisyClient analsisyClient = new AnalsisyClient(Util.getAnalsisyMessageName(),Util.getSendResultMessageName());
-            analsisyClient.start();
+//            ListAnalsisyClient listAnalsisyClient =
+//                    new ListAnalsisyClient(Util.getListAnalsisyMessageName(),Util.getListSendResultMessageName());
+//            listAnalsisyClient.start();
+
+
+        absAnalsisyClient analsisy = new DetailedAnalsisyClient(Util.getDetailedAnalsisyMessageName(),Util.getDetailedSendResultMessageName());
+        analsisy.start();
         }
-
-
 }

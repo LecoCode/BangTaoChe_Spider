@@ -11,11 +11,10 @@ import java.util.List;
  * @GitHub: https://github.com/LecoCode
  * @Function: 解析类的抽象类
  */
-public abstract class absAnalsisyMode {
-    private String pagexml;//需要解析的XML文件
-    public absAnalsisyMode setPageXMl(String pagexml){
+public abstract class absListAnalsisyMode implements AnalsisyInterface{
+    protected String pagexml;//需要解析的XML文件
+    public void setPageXMl(String pagexml){
         this.pagexml=pagexml;
-        return this;
     }
     public abstract List<CheBean> run();// 开始解析的抽象方法
 }

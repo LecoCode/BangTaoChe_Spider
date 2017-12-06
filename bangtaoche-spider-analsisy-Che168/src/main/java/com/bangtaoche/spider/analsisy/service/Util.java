@@ -56,22 +56,39 @@ public class Util {
      * 获取接收Che列表页XML的地址
      * @return
      */
-    public static String getAnalsisyMessageName(){
+    public static String getListAnalsisyMessageName(){
         Properties analsisy_message_name_conf = getProperties("analsisy_conf");
         String message_name = analsisy_message_name_conf.getProperty("hand_list_page_message_name");
+        return message_name;
+    }
+    /**
+     * 发送Che列表页XML的地址
+     * @return
+     */
+    public static String getListSendResultMessageName(){
+        Properties analsisy_message_name_conf = getProperties("analsisy_conf");
+        String message_name = analsisy_message_name_conf.getProperty("send_list_result_message_name");
         return message_name;
     }
     /**
      * 获取接收Che详细页XML的地址
      * @return
      */
-    public static String getSendResultMessageName(){
+    public static String getDetailedAnalsisyMessageName(){
         Properties analsisy_message_name_conf = getProperties("analsisy_conf");
-        String message_name = analsisy_message_name_conf.getProperty("send_list_result_message_name");
+        String message_name = analsisy_message_name_conf.getProperty("hand_detailed_page_message_name");
         return message_name;
     }
-
+    /**
+     * 发送Che详细页XML的地址
+     * @return
+     */
+    public static String getDetailedSendResultMessageName(){
+        Properties analsisy_message_name_conf = getProperties("analsisy_conf");
+        String message_name = analsisy_message_name_conf.getProperty("send_detailed_result_message_name");
+        return message_name;
+    }
     public static void main(String[] args) {
-        System.out.println(getAnalsisyMessageName());
+        System.out.println(getDetailedSendResultMessageName());
     }
 }

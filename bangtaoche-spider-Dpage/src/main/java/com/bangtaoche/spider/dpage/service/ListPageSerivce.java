@@ -6,7 +6,6 @@ import com.bangtaoche.spider.dpage.url.getUrl;
 import com.bangtaoche.spider.messagequeuecll.function.MessageMode;
 import com.bangtaoche.spider.util.Util;
 
-import java.io.IOException;
 import java.util.Iterator;
 import java.util.Set;
 import java.util.concurrent.ExecutorService;

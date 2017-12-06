@@ -12,7 +12,16 @@ import java.io.Serializable;
 public class MessageMode implements Serializable {
 
     private String sourceID;
+    private String pageUrl;
     private String Mode;
+
+    public String getPageUrl() {
+        return pageUrl;
+    }
+
+    public void setPageUrl(String pageUrl) {
+        this.pageUrl = pageUrl;
+    }
 
     public String getSourceID() {
         return sourceID;
@@ -33,7 +42,8 @@ public class MessageMode implements Serializable {
     @Override
     public String toString() {
         return "MessageMode{" +
-                "sourceID=" + sourceID +
+                "sourceID='" + sourceID + '\'' +
+                ", pageUrl='" + pageUrl + '\'' +
                 '}';
     }
 }
