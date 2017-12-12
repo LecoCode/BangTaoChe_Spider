@@ -1,7 +1,5 @@
 package com.bangtaoche.spider.analsisy.service;
 
-import com.bangtaoche.spider.messagequeuecll.function.CheBean;
-
 import java.util.List;
 
 /**

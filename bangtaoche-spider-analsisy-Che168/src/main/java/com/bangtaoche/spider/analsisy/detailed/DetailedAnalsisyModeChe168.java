@@ -1,7 +1,7 @@
 package com.bangtaoche.spider.analsisy.detailed;
 
+import bangtaoche.spider.beans.che.DeTailsCheBean;
 import com.bangtaoche.spider.analsisy.service.absDetailedAnalsisyMode;
-import com.bangtaoche.spider.messagequeuecll.function.DeTailsCheBean;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;

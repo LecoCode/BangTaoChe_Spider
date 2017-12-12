@@ -1,7 +1,6 @@
 package com.bangtaoche.spider.analsisy.service;
 
-import com.bangtaoche.spider.messagequeuecll.function.CheBean;
-import com.bangtaoche.spider.messagequeuecll.function.DeTailsCheBean;
+import bangtaoche.spider.beans.che.DeTailsCheBean;
 
 import java.util.List;
 

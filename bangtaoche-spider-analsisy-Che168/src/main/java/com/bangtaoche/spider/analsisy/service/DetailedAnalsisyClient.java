@@ -1,14 +1,12 @@
 package com.bangtaoche.spider.analsisy.service;
 
+import bangtaoche.spider.beans.che.DeTailsCheBean;
+import bangtaoche.spider.beans.network.MessageMode;
 import com.bangtaoche.spider.analsisy.detailed.DetailedAnalsisyModeChe168;
-import com.bangtaoche.spider.analsisy.list.ListAnalsisyModeChe168;
 import com.bangtaoche.spider.messagequeuecll.MessageQueueFactory;
 import com.bangtaoche.spider.messagequeuecll.function.Base.Consumer;
 import com.bangtaoche.spider.messagequeuecll.function.Base.Producer;
-import com.bangtaoche.spider.messagequeuecll.function.CheBean;
-import com.bangtaoche.spider.messagequeuecll.function.DeTailsCheBean;
 import com.bangtaoche.spider.messagequeuecll.function.MessageInterface.HandMessage;
-import com.bangtaoche.spider.messagequeuecll.function.MessageMode;
 
 import java.io.Serializable;
 import java.util.List;
