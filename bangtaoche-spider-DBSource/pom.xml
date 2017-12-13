@@ -19,6 +19,11 @@
             <artifactId>druid</artifactId>
             <version>1.0.11</version>
         </dependency>
+        <dependency>
+            <groupId>bagtaoche.spider.Bean</groupId>
+            <artifactId>Bean</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
 </project>

@@ -1,17 +1,13 @@
 package com.bangtaoche.spider.dbsource;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.sql.Statement;
-
+import bangtaoche.spider.beans.data.IP;
 /**
  * @author: 李飞
- * @Time: 17-12-4.
+ * @Time: 17-12-6.
  * @Emil: leco_li@126.com
  * @GitHub: https://github.com/LecoCode
  * @Function:
  */
-public class DBSourceDao {
-
+public interface DBSourceDao {
+    IP getIP();
 }

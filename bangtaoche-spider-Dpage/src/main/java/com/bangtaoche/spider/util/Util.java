@@ -2,6 +2,7 @@ package com.bangtaoche.spider.util;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Properties;
 
@@ -72,51 +73,60 @@ public class Util {
             }
         return source;
     }
-//message_name
-    /**
-     * 获取线程池最大线程数
-     * @return
-     */
-    public static int getExecutorsConnectionMax(){
-        Properties properties = getProperties("executor_conf");
-        String pool_max = properties.getProperty("pool_max");
-        return Integer.parseInt(pool_max);
-    }
+//    /**
+//     * 获取线程池最大线程数
+//     * @return
+//     */
+//    public static int getExecutorsConnectionMax(){
+//        Properties properties = getProperties("executor_conf");
+//        String pool_max = properties.getProperty("pool_max");
+//        return Integer.parseInt(pool_max);
+//    }
+//
+//    /**
+//     * 获取爬虫访问模式
+//     * 1：本机IP爬
+//     * 2：代理IP爬
+//     * @return
+//     */
+//    public static int getAccessMode(){
+//        Properties properties = getProperties("durl_conf");
+//        String pool_max = properties.getProperty("access_mode");
+//        return Integer.parseInt(pool_max);
+//    }
+//
+//    public static String getListMessageName(){
+//        Properties properties = getProperties("durl_conf");
+//        String message_name = properties.getProperty("list_message_name");
+//        return message_name;
+//    }
+//    public static String getDetailedMessageName(){
+//        Properties properties = getProperties("durl_conf");
+//        String message_name = properties.getProperty("detailed_message_name");
+//        return message_name;
+//    }
+//    public static String getHendDetailedUrlMessageName(){
+//        Properties properties = getProperties("durl_conf");
+//        String message_name = properties.getProperty("hend_detailed_url");
+//        return message_name;
+//    }
+//    public static int getStartMode(){
+//        Properties properties = getProperties("durl_conf");
+//        String message_name = properties.getProperty("start_mode");
+//        return Integer.parseInt(message_name);
+//    }
 
-    /**
-     * 获取爬虫访问模式
-     * 1：本机IP爬
-     * 2：代理IP爬
-     * @return
-     */
-    public static int getAccessMode(){
-        Properties properties = getProperties("durl_conf");
-        String pool_max = properties.getProperty("access_mode");
-        return Integer.parseInt(pool_max);
+    public static void outputINFO(String data,String fileName){
+        String file="/home/leco/BangTaoChe_Spider/log/"+fileName;
+        try {
+            OutputStream outputStream = new FileOutputStream(file,true);
+            PrintWriter pw = new PrintWriter(outputStream);
+            pw.println(data);
+            pw.flush();
+            pw.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            System.err.println("路径错误");
+        }
     }
-
-    public static String getListMessageName(){
-        Properties properties = getProperties("durl_conf");
-        String message_name = properties.getProperty("list_message_name");
-        return message_name;
-    }
-    public static String getDetailedMessageName(){
-        Properties properties = getProperties("durl_conf");
-        String message_name = properties.getProperty("detailed_message_name");
-        return message_name;
-    }
-    public static String getHendDetailedUrlMessageName(){
-        Properties properties = getProperties("durl_conf");
-        String message_name = properties.getProperty("hend_detailed_url");
-        return message_name;
-    }
-    public static int getStartMode(){
-        Properties properties = getProperties("durl_conf");
-        String message_name = properties.getProperty("start_mode");
-        return Integer.parseInt(message_name);
-    }
-    public static void main(String[] args) {
-        System.out.println(getAccessMode());
-    }
-
 }

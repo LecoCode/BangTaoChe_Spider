@@ -15,13 +15,6 @@ import java.io.IOException;
  */
 public class TotalControl {
     public static void main(String[] args) throws IOException, InterruptedException {
-        int startMode = Util.getStartMode();
-        service service = null;
-//        if (startMode==1){
-//         service = new ListPageSerivce();
-//        }else if (startMode==2){
-         service  = new DetailedPageService(Util.getHendDetailedUrlMessageName());
-//        }
-        service.start();
+
     }
 }

@@ -1,7 +1,5 @@
 package com.bangtaoche.spider.dpage.mode;
 
-import com.bangtaoche.spider.dpage.jopo.IP;
-
 /**
  * @author: 李飞
  * @Time: 17-11-23.

@@ -3,9 +3,6 @@
 /home/leco/BangTaoChe_Spider/bangtaoche-spider-MessageQueueCll/src/main/java/com/bangtaoche/spider/util/ConfigConnection.java
 /home/leco/BangTaoChe_Spider/bangtaoche-spider-MessageQueueCll/src/main/java/com/bangtaoche/spider/messagequeuecll/function/Base/Consumer.java
 /home/leco/BangTaoChe_Spider/bangtaoche-spider-MessageQueueCll/src/main/java/com/bangtaoche/spider/messagequeuecll/MessageQueueFactory.java
-/home/leco/BangTaoChe_Spider/bangtaoche-spider-MessageQueueCll/src/main/java/com/bangtaoche/spider/messagequeuecll/function/CheBean.java
-/home/leco/BangTaoChe_Spider/bangtaoche-spider-MessageQueueCll/src/main/java/com/bangtaoche/spider/messagequeuecll/function/DeTailsCheBean.java
-/home/leco/BangTaoChe_Spider/bangtaoche-spider-MessageQueueCll/src/main/java/com/bangtaoche/spider/messagequeuecll/function/MessageMode.java
 /home/leco/BangTaoChe_Spider/bangtaoche-spider-MessageQueueCll/src/main/java/com/bangtaoche/spider/messagequeuecll/function/medium/CreateSession.java
 /home/leco/BangTaoChe_Spider/bangtaoche-spider-MessageQueueCll/src/main/java/com/bangtaoche/spider/messagequeuecll/function/medium/ActiveMQConnection.java
 /home/leco/BangTaoChe_Spider/bangtaoche-spider-MessageQueueCll/src/main/java/com/bangtaoche/spider/messagequeuecll/function/MessageInterface/SendMessage.java

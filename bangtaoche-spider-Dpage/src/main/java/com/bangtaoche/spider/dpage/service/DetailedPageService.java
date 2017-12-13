@@ -1,12 +1,11 @@
 package com.bangtaoche.spider.dpage.service;
 
-import com.bangtaoche.spider.dpage.runnables.getPageRunnable;
+import bangtaoche.spider.beans.network.MessageMode;
+import com.bangtaoche.spider.dpage.coordinator.DpageCoordinator;
+import com.bangtaoche.spider.dpage.runnables.PageRunnableImpl;
 import com.bangtaoche.spider.messagequeuecll.MessageQueueFactory;
 import com.bangtaoche.spider.messagequeuecll.function.Base.Consumer;
-import com.bangtaoche.spider.messagequeuecll.function.Base.Producer;
 import com.bangtaoche.spider.messagequeuecll.function.MessageInterface.HandMessage;
-import com.bangtaoche.spider.messagequeuecll.function.MessageMode;
-import com.bangtaoche.spider.util.Util;
 
 import java.io.Serializable;
 import java.util.concurrent.ExecutorService;
@@ -22,9 +21,9 @@ import java.util.concurrent.Executors;
 public class DetailedPageService implements service {
     private String HendDetailedUrlMessageName;//获取详细url的地址
     private ExecutorService executorService;
-    public DetailedPageService(String HendDetailedUrlMessageName){
-        this.HendDetailedUrlMessageName=HendDetailedUrlMessageName;
-        executorService = Executors.newFixedThreadPool(Util.getExecutorsConnectionMax());
+    public DetailedPageService(){
+        this.HendDetailedUrlMessageName= DpageCoordinator.dpageConfig.getHandDetailedUrl();
+        executorService = Executors.newFixedThreadPool(DpageCoordinator.dpageConfig.getPoolMax());
     }
 
     public void start(){
@@ -39,7 +38,7 @@ public class DetailedPageService implements service {
             public void handMessage(Serializable serializable) {
                 MessageMode messageMode = (MessageMode) serializable;
                 System.out.println(">>>>>>>>>>>>>>URL:"+messageMode.getSourceID());
-                executorService.execute(new getPageRunnable(messageMode,2));
+                executorService.execute(new PageRunnableImpl(messageMode,2));
             }
         });
 

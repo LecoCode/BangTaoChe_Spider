@@ -1,11 +1,11 @@
 package com.bangtaoche.spider.solver.che_list;
 
+import bangtaoche.spider.beans.che.CheBean;
+import bangtaoche.spider.beans.network.MessageMode;
 import com.bangtaoche.spider.messagequeuecll.MessageQueueFactory;
 import com.bangtaoche.spider.messagequeuecll.function.Base.Consumer;
 import com.bangtaoche.spider.messagequeuecll.function.Base.Producer;
-import com.bangtaoche.spider.messagequeuecll.function.CheBean;
 import com.bangtaoche.spider.messagequeuecll.function.MessageInterface.HandMessage;
-import com.bangtaoche.spider.messagequeuecll.function.MessageMode;
 import com.bangtaoche.spider.solver.Util;
 
 import java.io.Serializable;

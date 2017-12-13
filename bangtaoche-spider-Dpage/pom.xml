@@ -49,7 +49,17 @@
         <dependency>
             <groupId>com.bangtaoche.spider.MessageQueueCll</groupId>
             <artifactId>bangtaoche-spider-MessageQueueCll</artifactId>
-            <version>1.4-SNAPSHOT</version>
+            <version>1.5-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>bagtaoche.spider.Bean</groupId>
+            <artifactId>Bean</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>bangtaoche.spider.DBSource</groupId>
+            <artifactId>DBSource</artifactId>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
         <!--<dependency>-->
             <!--<groupId>javax.jms</groupId>-->

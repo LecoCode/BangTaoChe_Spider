@@ -1,8 +1,8 @@
 package com.bangtaoche.spider.solver.che_detailed;
 
+import bangtaoche.spider.beans.che.DeTailsCheBean;
 import com.bangtaoche.spider.messagequeuecll.MessageQueueFactory;
 import com.bangtaoche.spider.messagequeuecll.function.Base.Consumer;
-import com.bangtaoche.spider.messagequeuecll.function.DeTailsCheBean;
 import com.bangtaoche.spider.messagequeuecll.function.MessageInterface.HandMessage;
 
 import java.io.Serializable;

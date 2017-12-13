@@ -1,10 +1,9 @@
 package com.bangtaoche.spider.dpage.service;
 
-import com.bangtaoche.spider.dpage.runnables.getPageRunnable;
-import com.bangtaoche.spider.dpage.url.DBsourceURL;
-import com.bangtaoche.spider.dpage.url.getUrl;
-import com.bangtaoche.spider.messagequeuecll.function.MessageMode;
-import com.bangtaoche.spider.util.Util;
+import bangtaoche.spider.beans.network.MessageMode;
+import com.bangtaoche.spider.dpage.coordinator.DpageCoordinator;
+import com.bangtaoche.spider.dpage.runnables.PageRunnableImpl;
+import com.bangtaoche.spider.dpage.dao.DBSourceUrlDao;
 
 import java.util.Iterator;
 import java.util.Set;
@@ -19,18 +18,18 @@ import java.util.concurrent.Executors;
  * @Function:
  */
 public class ListPageSerivce  implements service{
-    private DBsourceURL dBsourceURL;
+    private DBSourceUrlDao dBsourceURLDao;
     private ExecutorService executorService;
     public ListPageSerivce(){
-        dBsourceURL = new getUrl();
-        executorService = Executors.newFixedThreadPool(Util.getExecutorsConnectionMax());
+        dBsourceURLDao = new DBSourceUrlDao();
+        executorService = Executors.newFixedThreadPool(DpageCoordinator.dpageConfig.getPoolMax());
     }
     public void start(){
         while (true){
-            String[] sourceIDs = Util.getSourceIDs();
+            String[] sourceIDs = DpageCoordinator.dpageConfig.getListUrlKey();
             for (String source:
                     sourceIDs) {
-                Set<String> urlAll = dBsourceURL.getUrlAll(source);
+                Set<String> urlAll = dBsourceURLDao.getUrlAll(source);
                 int i=0;
                 System.out.println(
                         urlAll.size());
@@ -40,7 +39,7 @@ public class ListPageSerivce  implements service{
                     messageMode.setSourceID(source);
                     String urls = iterator.next();
                     messageMode.setMode(urls);
-                    executorService.execute(new getPageRunnable(messageMode,1));
+                    executorService.execute(new PageRunnableImpl(messageMode,1));
                     System.out.println("添加了"+(i++)+"个线程！");
                 }
                 urlAll.clear();

@@ -1,6 +1,7 @@
 package com.bangtaoche.spider.dpage.messagequeue;
 
-import com.bangtaoche.spider.messagequeuecll.function.MessageMode;
+
+import bangtaoche.spider.beans.network.MessageMode;
 
 import java.io.Serializable;
 
